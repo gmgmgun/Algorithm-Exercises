@@ -32,23 +32,6 @@ function readLine() {
  *  3. INTEGER m
  */
 
-const getCombinations = (s, m) => {
-  const results = [];
-
-  if (m === 1) {
-    return s.map((value) => [value]);
-  }
-
-  s.forEach((fixed, index, origin) => {
-    const rest = origin.slice(index + 1);
-    const combinations = getCombinations(rest, m - 1);
-    const attached = combinations.map((combination) => [fixed, ...combination]);
-    results.push(...attached);
-  });
-
-  return results;
-};
-
 function birthday(s, d, m) {
   let count = 0;
 

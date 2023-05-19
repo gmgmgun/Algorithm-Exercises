@@ -32,7 +32,6 @@ function readLine() {
  */
 
 function sockMerchant(n, ar) {
-  // Write your code here
   const cntArr = [];
   const checkArr = [];
 

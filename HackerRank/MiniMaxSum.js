@@ -32,6 +32,7 @@ function miniMaxSum(arr) {
   const miniSum = sortedArr
     .slice(0, sortedArr.length - 1)
     .reduce((acc, cur) => acc + cur, 0);
+
   const maxSum = sortedArr.slice(1).reduce((acc, cur) => acc + cur, 0);
 
   console.log(`${miniSum} ${maxSum}`);

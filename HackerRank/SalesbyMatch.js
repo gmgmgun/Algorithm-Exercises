@@ -41,13 +41,17 @@ function sockMerchant(n, ar) {
   for (let i = 0; i < ar.length; i++) {
     if (checkArr.indexOf(ar[i]) === -1) {
       let j = i;
+
       checkArr.push(ar[i]);
       cnt++;
+
       while (ar.indexOf(ar[i], j + 1) !== -1) {
         j = ar.indexOf(ar[i], j + 1);
         cnt++;
       }
+
       cntArr.push(cnt);
+
       cnt = 0;
     }
   }

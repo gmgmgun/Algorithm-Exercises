@@ -10,7 +10,7 @@ function solution(players, callings) {
     const currentIndex = indexMap[calling];
     const newIndex = currentIndex - 1;
 
-    if (newIndex >= 0 && newIndex < players.length) {
+    if (newIndex >= 0) {
       const temp = players[newIndex];
       players[newIndex] = players[currentIndex];
       players[currentIndex] = temp;

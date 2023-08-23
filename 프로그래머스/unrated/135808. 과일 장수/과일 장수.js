@@ -1,19 +1,17 @@
 function solution(k, m, score) {
-    var answer = 0;
     let obj = {};
     let reminder = 0;
-    let apples = score.map(
-        (el)=> { if(obj[el]) obj[el]++
-                 else obj[el] = 1 }
-    );
     
-    for (let i = 9; i >= 0; i--) {
-        if(obj[i]) {
-            obj[i] += reminder;
-            answer += parseInt(obj[i]/m) * m * i;
-            reminder = obj[i]%m;
-        }
-    }
+    score.map((el)=> { 
+                       if(obj[el]) obj[el]++
+                       else obj[el] = 1 
+                     });
+    
+    let answer = Object.keys(obj).sort((a,b)=>b-a).reduce((acc,el) =>{
+        obj[el] += reminder;
+        reminder = obj[el]%m;
+        return acc + parseInt(obj[el]/m) * m * el; 
+    },0)
     
     return answer;
 }

@@ -9,7 +9,7 @@ function solution(food) {
         }
     }
     
-    answer = arr.toString().replaceAll(',','');
+    answer = arr.join('');
     
     return answer;
 }

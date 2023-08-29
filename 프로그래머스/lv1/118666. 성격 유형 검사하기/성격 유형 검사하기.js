@@ -35,6 +35,6 @@ function solution(survey, choices) {
         } 
     }
     
-    
-    return answerArr.join('');
+    answer = answerArr.join('');
+    return answer;
 }

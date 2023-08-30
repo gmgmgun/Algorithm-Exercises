@@ -1,3 +1,3 @@
 function solution(numbers) {
-    return 45 - numbers.reduce((acc,el) => acc+el)
+    return numbers.reduce((acc,el) => acc-el, 45)
 }

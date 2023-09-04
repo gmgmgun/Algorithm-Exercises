@@ -17,11 +17,9 @@ function solution(n, lost, reserve) {
     for (el of lost) {
         if (reserve.indexOf(el-1) !== -1) {
             reserve = reserve.filter((_,idx) => idx !== reserve.indexOf(el-1))
-            lost = lost.filter((_,idx) => idx !== lost.indexOf(el))
             answer++;
         } else if (reserve.indexOf(el+1) !== -1) {
             reserve = reserve.filter((_,idx) => idx !== reserve.indexOf(el+1))
-            lost = lost.filter((_,idx) => idx !== lost.indexOf(el))
             answer++;
         }   
     }

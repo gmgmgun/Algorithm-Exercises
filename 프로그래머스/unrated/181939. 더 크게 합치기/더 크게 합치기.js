@@ -1,0 +1,1 @@
+const solution = (a, b) => `${a}`+ `${b}` >= `${b}`+ `${a}` ? Number(`${a}`+ `${b}`) : Number(`${b}`+ `${a}`); 

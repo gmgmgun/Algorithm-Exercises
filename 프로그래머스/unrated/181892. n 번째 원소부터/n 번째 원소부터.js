@@ -1,0 +1,1 @@
+const solution = (arr,n) => arr.slice(n-1);

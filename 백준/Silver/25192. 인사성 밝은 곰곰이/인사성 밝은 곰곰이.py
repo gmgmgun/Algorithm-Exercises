@@ -22,4 +22,5 @@ def find_bear_counts():
 
     print(cnt_bear)
 
+
 find_bear_counts()

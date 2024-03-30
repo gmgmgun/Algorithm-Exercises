@@ -1,13 +1,18 @@
 n, m = map(int, input().split())
-dic = {}
-res = []
-for i in range(n):
-    not_seen = input()
-    dic[not_seen] = 1
-for i in range(m):
-    not_heard = input()
-    if not_heard in dic: 
-        res.append(not_heard)
-print(len(res))     
-for name in sorted(res):
-    print(name)
+n_list = [input() for _ in range(n)]
+m_list = [input() for _ in range(m)]
+
+
+def find_job_bobs(jobs, bobs):
+    job_set = set(jobs)
+    bob_set = set(bobs)
+
+    job_bobs = list(job_set.intersection(bob_set))
+
+    print(len(job_bobs))
+
+    for job_bob in sorted(job_bobs):
+        print(job_bob)
+
+
+find_job_bobs(n_list, m_list)

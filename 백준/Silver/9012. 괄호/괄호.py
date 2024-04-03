@@ -5,21 +5,18 @@ a = [input() for _ in range(n)]
 def is_vps(string):
     if len(string) % 2 != 0:
         return 'NO'
-
-    stack = []
+    
+    count = 0
 
     for char in string:
         if char == '(':
-            stack.append(char)
-        else:
-            if not stack:
+            count += 1
+        elif char == ')':
+            if count == 0:
                 return 'NO'
-            stack.pop()
+            count -= 1
 
-    if stack:
-        return 'NO'
-
-    return 'YES'
+    return 'YES' if count == 0 else 'NO'
 
 
 def find_vps(arr):

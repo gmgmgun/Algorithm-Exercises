@@ -14,10 +14,8 @@ def pop_balloons(balloons):
 
         if move > 0:
             move -= 1
-            deck.rotate(-move)
-        else:
-            move *= -1
-            deck.rotate(move)
+        
+        deck.rotate(-move)
 
     return ' '.join(map(str, pop_order))
 

@@ -1,39 +1,20 @@
-def get_input():
+from sys import stdin
+input = stdin.readline
+
+T = int(input())
+
+for _ in range(T):
+    clothes = {}
     n = int(input())
-    cases = []
-
     for _ in range(n):
-        num_clothes = int(input())
-        clothes = []
-
-        for _ in range(num_clothes):
-            cloth = input().split()
-            clothes.append(tuple(cloth))
-
-        cases.append(clothes)
-
-    return cases
-
-
-def count_outfit():
-    cases = get_input()
-    results = []
-    
-    for clothes in cases:
-        cloth_map = {}
-        
-        for _, cloth_type in clothes:
-            cloth_map[cloth_type] = cloth_map.get(cloth_type, 0) + 1
-
-        combinations = 1
-        
-        for count in cloth_map.values():
-            combinations *= (count + 1)
-
-        results.append(combinations - 1)
-
-    for result in results:
-        print(result)
-
-
-count_outfit()
+        cName, cType = input().rstrip().split()
+        # 해당 종류의 존재 유무에 따라, (개수) 추가
+        if not cType in clothes:
+            clothes[cType] = 1
+        else:
+            clothes[cType] += 1
+            
+    count = 1
+    for i in clothes:
+        count *= (clothes[i] + 1) # 해당 종류의 의상을 착용하지 않아도 되는 경우도 포함 (+1)
+    print(count - 1) # 모든 의상을 착용하지 않은 경우를 제외 (-1)

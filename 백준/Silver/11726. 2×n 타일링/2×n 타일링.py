@@ -14,12 +14,10 @@ N을 입력 받아서 2 x N 크기를 1 x 2, 2 x 1 로 채우는 경우의 수
     ...
     - 2 x i 를 채우는 경우의 수는?
     dp[i] = dp[i -1] + dp[i - 2]
-3. 점화식 결과를 메모라이징하며 계산
+
 
 [카테고리]
 동적 계획법(DP)
-
-[리소스]
 -------------------------------------------
 """
 
@@ -29,28 +27,28 @@ N = int(sys.stdin.readline())
 
 
 def tile_squares(n):
-    mod = 10007
+    mod = 10007  
     """
     나머지 연산에 10007를 사용하는 이유
     - 오버플로우 이슈를 회피하기 위해 정수 범위를 제한
-    - 10007은 소수이기 때문에 나머지 연산 시 결과가 보다 균등하게 분포됨
+    - 10007은 소수이기 때문에 연산 결과가 보다 균등하게 분포됨
     """
-
+    
     # 1, 2 입력 시 점화식을 타지 않고 얼리 리턴
     if n == 1:
         return 1
     elif n == 2:
         return 2
-
-    prev2, prev1 = 1, 2  # dp[i-2], dp[i-1]
-    cur = 0
+    
+    
+    dp = [0] * (n + 1)  # 점화식의 결과가 들어갈 공간
+    dp[1] = 1
+    dp[2] = 2
 
     for i in range(3, n + 1):  # 1, 2는 구해놓음
-        cur = (prev1 + prev2) % mod  # dp[i] = dp[i-1] + dp[i-2]
-        prev2 = prev1
-        prev1 = cur
+        dp[i] = (dp[i-1] + dp[i-2]) % mod  # 점화식
 
-    return cur
+    return dp[n]
 
 
 print(tile_squares(N))

@@ -47,12 +47,11 @@ def find_route(n, g):
         # 큐에서 꺼내서 현재 헛간 가는 길에 소 몇마리 있는지 확인
         cur_cow, cur_shed = heapq.heappop(pq)
 
-        # 가는 길에 마주치는 최소한의 소보다 현재 마주친 소가 더 많으면 되돌아가서 큐에서 꺼냄
-        # if cur_cow > dist[cur_shed]:
+        # # 이미 탐색이 끝난 노드는 스킵
+        # if visited[cur_shed]:
         #     continue
-        if visited[cur_shed]:
-            continue
-        visited[cur_shed] = True
+
+        # visited[cur_shed] = True
 
         # 그래프 탐색
         for cow, shed in graph[cur_shed]:
